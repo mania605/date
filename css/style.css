@@ -49,17 +49,27 @@ main .panel li:nth-of-type(5) {
 }
 main .btns {
   width: 100%;
+  padding: 0px 10%;
   position: absolute;
-  bottom: 20px;
+  bottom: 5vh;
   left: 0px;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
 }
 main .btns li {
   cursor: pointer;
+  width: 18%;
+  height: 50px;
+  border: 1px solid #555;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  border-radius: 25px;
 }
 main .btns li.on {
-  color: red;
+  color: white;
+  background: rgba(0, 0, 0, 0.5);
 }
 
 /*# sourceMappingURL=style.css.map */
