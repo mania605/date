@@ -58,5 +58,8 @@ main .btns {
 main .btns li {
   cursor: pointer;
 }
+main .btns li.on {
+  color: red;
+}
 
 /*# sourceMappingURL=style.css.map */
