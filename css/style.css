@@ -15,20 +15,18 @@ a {
 }
 
 main {
-  width: 400px;
-  height: 200px;
-  border: 1px solid red;
-  margin: 100px auto;
+  width: 100%;
+  height: 100vh;
   position: relative;
+  overflow: hidden;
 }
 main .panel {
-  width: 2000px;
-  height: 200px;
+  position: absolute;
+  top: 0%;
+  left: 0%;
   display: flex;
 }
 main .panel li {
-  width: 400px;
-  height: 200px;
   display: flex;
   justify-content: center;
   align-items: center;
