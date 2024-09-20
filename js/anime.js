@@ -23,12 +23,11 @@ class Anime {
   getValue(key, value, type) {
     let currentValue = null;
 
-    //currentValue = parseFloat(getComputedStyle(this.selector)[key]);
-    currentValue = this.selector.scrollY;
+    currentValue = parseFloat(getComputedStyle(this.selector)[key]);
+    //currentValue = this.selector.scrollY;
     key === "scroll"
       ? (currentValue = this.selector.scrollY)
-      : //: (currentValue = parseFloat(getComputedStyle(this.selector)[key]));
-      (currentValue = this.selector.scrollY);
+      : (currentValue = parseFloat(getComputedStyle(this.selector)[key]));
 
     if (type === "percent") {
       const parentW = parseInt(

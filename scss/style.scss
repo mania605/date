@@ -1,14 +1,17 @@
 @import "reset";
+
 main {
   width: 400px;
   height: 200px;
   border: 1px solid red;
   margin: 100px auto;
   position: relative;
+
   .panel {
     width: 2000px;
     height: 200px;
     display: flex;
+
     li {
       width: 400px;
       height: 200px;
@@ -16,6 +19,7 @@ main {
       justify-content: center;
       align-items: center;
       font-size: 50px;
+
       &:nth-of-type(1) {
         background: aqua;
       }
@@ -33,6 +37,7 @@ main {
       }
     }
   }
+
   .btns {
     width: 100%;
     position: absolute;
@@ -40,8 +45,9 @@ main {
     left: 0px;
     display: flex;
     justify-content: space-evenly;
+
     li {
       cursor: pointer;
     }
   }
-} 
+}
