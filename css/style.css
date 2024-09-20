@@ -27,25 +27,25 @@ main .panel {
   display: flex;
 }
 main .panel li {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 50px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
 }
 main .panel li:nth-of-type(1) {
-  background: aqua;
+  background-image: url(../img/pic00.jpg);
 }
 main .panel li:nth-of-type(2) {
-  background: lightgreen;
+  background-image: url(../img/pic11.jpg);
 }
 main .panel li:nth-of-type(3) {
-  background: hotpink;
+  background-image: url(../img/pic22.jpg);
 }
 main .panel li:nth-of-type(4) {
-  background: orange;
+  background-image: url(../img/pic33.jpg);
 }
 main .panel li:nth-of-type(5) {
-  background: violet;
+  background-image: url(../img/pic44.jpg);
 }
 main .btns {
   width: 100%;
