@@ -28,7 +28,7 @@ class Anime {
     key === "scroll"
       ? (currentValue = this.selector.scrollY)
       : //: (currentValue = parseFloat(getComputedStyle(this.selector)[key]));
-        (currentValue = this.selector.scrollY);
+      (currentValue = this.selector.scrollY);
 
     if (type === "percent") {
       const parentW = parseInt(
@@ -77,12 +77,12 @@ class Anime {
 
     progress < 1
       ? ["percent", "color", "basic"].map(
-          (el) =>
-            type === el &&
-            requestAnimationFrame((time) =>
-              this.run(time, key, currentValue, value, type)
-            )
-        )
+        (el) =>
+          type === el &&
+          requestAnimationFrame((time) =>
+            this.run(time, key, currentValue, value, type)
+          )
+      )
       : this.callback && this.callback();
   }
 
@@ -101,10 +101,10 @@ class Anime {
     };
 
     /*
-		Object.keys(easingPresets).map((key) => {
-			if (this.easeType === key) easingProgress = BezierEasing(easingPresets[key][0], easingPresets[key][1], easingPresets[key][2], easingPresets[key][3])(progress);
-		});
-		*/
+    Object.keys(easingPresets).map((key) => {
+      if (this.easeType === key) easingProgress = BezierEasing(easingPresets[key][0], easingPresets[key][1], easingPresets[key][2], easingPresets[key][3])(progress);
+    });
+    */
 
     Object.keys(easingPresets).map(
       (key) =>
@@ -113,27 +113,27 @@ class Anime {
     );
 
     /*
-		if (this.isBg) {
-			const result = currentValue.map((curVal, idx) => curVal + (value[idx] - curVal) * easingProgress);
-			return [progress, result];
-		} else {
-			const result = currentValue + (value - currentValue) * easingProgress;
-			return [progress, result];
-		}
-		*/
+    if (this.isBg) {
+      const result = currentValue.map((curVal, idx) => curVal + (value[idx] - curVal) * easingProgress);
+      return [progress, result];
+    } else {
+      const result = currentValue + (value - currentValue) * easingProgress;
+      return [progress, result];
+    }
+    */
 
     /*
-		return this.isBg
-			? [progress, currentValue.map((curVal, idx) => curVal + (value[idx] - curVal) * easingProgress)]
-			: [progress, currentValue + (value - currentValue) * easingProgress];
-		*/
+    return this.isBg
+      ? [progress, currentValue.map((curVal, idx) => curVal + (value[idx] - curVal) * easingProgress)]
+      : [progress, currentValue + (value - currentValue) * easingProgress];
+    */
 
     return [
       progress,
       this.isBg
         ? currentValue.map(
-            (curVal, idx) => curVal + (value[idx] - curVal) * easingProgress
-          )
+          (curVal, idx) => curVal + (value[idx] - curVal) * easingProgress
+        )
         : currentValue + (value - currentValue) * easingProgress,
     ];
   }

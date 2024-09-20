@@ -1,7 +1,6 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
 ul,
@@ -13,6 +12,53 @@ li {
 a {
   text-decoration: none;
   color: inherit;
+}
+
+main {
+  width: 400px;
+  height: 200px;
+  border: 1px solid red;
+  margin: 100px auto;
+  position: relative;
+}
+main .panel {
+  width: 2000px;
+  height: 200px;
+  display: flex;
+}
+main .panel li {
+  width: 400px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
+}
+main .panel li:nth-of-type(1) {
+  background: aqua;
+}
+main .panel li:nth-of-type(2) {
+  background: lightgreen;
+}
+main .panel li:nth-of-type(3) {
+  background: hotpink;
+}
+main .panel li:nth-of-type(4) {
+  background: orange;
+}
+main .panel li:nth-of-type(5) {
+  background: violet;
+}
+main .btns {
+  width: 100%;
+  position: absolute;
+  bottom: 20px;
+  left: 0px;
+  display: flex;
+  justify-content: space-evenly;
+}
+main .btns li {
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=style.css.map */
