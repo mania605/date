@@ -66,14 +66,19 @@ btns.forEach((btn, idx) => {
   -그 직후 원하는 요소만 활성화 처리
 
 */
-// 
+// 각각 메인 컨테이너, 패널, 버튼 목록을 선택
 const frame = document.querySelector("main");
 const panel = frame.querySelector(".panel");
 const btns = frame.querySelectorAll(".btns li");
 
 //스크립트 로딩시 패널 너비, 높이 동적 초기화
+//패널과 li 요소의 동적 스타일링
 panel.style.width = 100 * btns.length + "%";
 panel.style.height = "100%";
+//패널의 크기는 버튼 개수에 맞춰 동적으로 설정.
+//패널의 너비는 버튼 개수만큼 100%씩 늘어남.
+//각 li 요소(패널 슬라이드)는 버튼 개수에 맞춰 너비가 100%로 설정됨
+
 
 panel.querySelectorAll("li").forEach((li) => {
   li.style.width = 100 / btns.length + "%";
@@ -81,12 +86,22 @@ panel.querySelectorAll("li").forEach((li) => {
 });
 
 //각 버튼 클릭 이벤트 연결
+//forEach를 사용해 각 버튼에 클릭 이벤트를 추가합니다.
+
+
+
 btns.forEach((btn, idx) => {
-  btn.addEventListener("click", () => {
+  btn.addEventListener("click", () => { //버튼 클릭 시:
     new Anime(panel, { left: -100 * idx + "%" }, { duration: 1000 });
+    ///Anime 클래스를 사용해 패널을 왼쪽으로 이동시킴
+    ///예를 들어, 첫 번째 버튼을 클릭하면 left: 0%, 두 번째 버튼을 클릭하면 left: -100%로 이동하여 패널이 보이도록 
+
+
     //버튼 클릭시마다 순간적으로 모든 버튼을 반복돌며 on을 제거
+    ///모든 버튼에서 on 클래스를 제거
     btns.forEach((btn) => btn.classList.remove("on"));
     //idx에 해당하는 현재 순번의 버튼만 on을 붙여 활성화
+    ///클릭된 버튼만 on 클래스를 추가해 활성화 표시.
     btns[idx].classList.add("on");
   });
 }); 
