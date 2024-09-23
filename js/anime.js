@@ -1,6 +1,5 @@
 class Anime {
   #defOpt = { duration: 500, callback: null, easeType: "linear" };
-
   constructor(selector, props, opt) {
     this.selector = selector;
     this.defOpt = { ...this.#defOpt, ...opt };
@@ -19,16 +18,13 @@ class Anime {
         : this.getValue(key, this.values[idx], "basic");
     });
   }
-
   getValue(key, value, type) {
     let currentValue = null;
-
     currentValue = parseFloat(getComputedStyle(this.selector)[key]);
     //currentValue = this.selector.scrollY;
     key === "scroll"
       ? (currentValue = this.selector.scrollY)
       : (currentValue = parseFloat(getComputedStyle(this.selector)[key]));
-
     if (type === "percent") {
       const parentW = parseInt(
         getComputedStyle(this.selector.parentElement).width
@@ -69,11 +65,9 @@ class Anime {
         );
     }
   }
-
   run(time, key, currentValue, value, type) {
     let [progress, result] = this.getProgress(time, currentValue, value);
     this.setValue(key, result, type);
-
     progress < 1
       ? ["percent", "color", "basic"].map(
         (el) =>
@@ -84,7 +78,6 @@ class Anime {
       )
       : this.callback && this.callback();
   }
-
   getProgress(time, currentValue, value) {
     let easingProgress = null;
     currentValue.length ? (this.isBg = true) : (this.isBg = false);
@@ -92,25 +85,21 @@ class Anime {
     let progress = timelast / this.duration;
     progress < 0 && (progress = 0);
     progress > 1 && (progress = 1);
-
     const easingPresets = {
       linear: [0, 0, 1, 1],
       ease1: [0.22, -1.27, 0.58, 1.87],
       ease2: [0, 1.82, 0.94, -0.73],
     };
-
     /*
     Object.keys(easingPresets).map((key) => {
       if (this.easeType === key) easingProgress = BezierEasing(easingPresets[key][0], easingPresets[key][1], easingPresets[key][2], easingPresets[key][3])(progress);
     });
     */
-
     Object.keys(easingPresets).map(
       (key) =>
         this.easeType === key &&
         (easingProgress = BezierEasing(...easingPresets[key])(progress))
     );
-
     /*
     if (this.isBg) {
       const result = currentValue.map((curVal, idx) => curVal + (value[idx] - curVal) * easingProgress);
@@ -120,13 +109,11 @@ class Anime {
       return [progress, result];
     }
     */
-
     /*
     return this.isBg
       ? [progress, currentValue.map((curVal, idx) => curVal + (value[idx] - curVal) * easingProgress)]
       : [progress, currentValue + (value - currentValue) * easingProgress];
     */
-
     return [
       progress,
       this.isBg
@@ -136,7 +123,6 @@ class Anime {
         : currentValue + (value - currentValue) * easingProgress,
     ];
   }
-
   setValue(key, result, type) {
     if (type === "percent") this.selector.style[key] = result + "%";
     else if (type === "color")
@@ -145,16 +131,13 @@ class Anime {
     else if (key === "scroll") this.selector.scroll(0, result);
     else this.selector.style[key] = result + "px";
   }
-
   colorToArray(strColor) {
     return strColor.match(/\d+/g).map(Number);
   }
-
   hexToRgb(hexColor) {
     const hex = hexColor.replace("#", "");
     const rgb =
       hex.length === 3 ? hex.match(/a-f\d/gi) : hex.match(/[a-f\d]{2}/gi);
-
     return rgb.map((el) => {
       if (el.length === 1) el = el + el;
       return parseInt(el, 16);

@@ -1,6 +1,6 @@
 * {
-  margin: 0;
-  padding: 0;
+  margin: 0px;
+  padding: 0px;
   box-sizing: border-box;
 }
 
@@ -13,64 +13,6 @@ li {
 a {
   text-decoration: none;
   color: inherit;
-}
-
-main {
-  width: 100%;
-  height: 100vh;
-  position: relative;
-  overflow: hidden;
-}
-main .panel {
-  position: absolute;
-  top: 0%;
-  left: 0%;
-  display: flex;
-}
-main .panel li {
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  background-attachment: fixed;
-}
-main .panel li:nth-of-type(1) {
-  background-image: url(../img/pic00.jpg);
-}
-main .panel li:nth-of-type(2) {
-  background-image: url(../img/pic11.jpg);
-}
-main .panel li:nth-of-type(3) {
-  background-image: url(../img/pic22.jpg);
-}
-main .panel li:nth-of-type(4) {
-  background-image: url(../img/pic33.jpg);
-}
-main .panel li:nth-of-type(5) {
-  background-image: url(../img/pic44.jpg);
-}
-main .btns {
-  width: 100%;
-  padding: 0px 10%;
-  position: absolute;
-  bottom: 5vh;
-  left: 0px;
-  display: flex;
-  justify-content: space-between;
-}
-main .btns li {
-  cursor: pointer;
-  width: 18%;
-  height: 50px;
-  border: 1px solid #111;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 14px;
-  border-radius: 25px;
-}
-main .btns li.on {
-  color: white;
-  background: rgba(0, 0, 0, 0.5);
 }
 
 /*# sourceMappingURL=style.css.map */
