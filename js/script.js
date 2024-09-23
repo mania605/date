@@ -17,6 +17,8 @@ function getTime() {
   if (hr >= 13) {
     am.classList.remove("on");
     pm.classList.add("on");
+    //13시가 넘어설때 12를 뺀 값을 다시 hr변수에 재할당
+    hr = hr - 12;
   } else {
     pm.classList.remove("on");
     am.classList.add("on");
@@ -30,48 +32,29 @@ function setTime(num, index) {
   numbers[index].innerText = num;
 }
 
-// //시간에 따른 테마 변경 함수
-
-// function changeTheme() {
-//   const hr = new Date().getHours();
-
-//   if (hr >= 5 && hr < 11) {
-//     main.className = "";
-//     main.classList.add("morning");
-//   }
-//   if (hr >= 11 && hr < 16) {
-//     main.className = "";
-//     main.classList.add("afternoon");
-//   }
-//   if (hr >= 16 && hr < 20) {
-//     main.className = "";
-//     main.classList.add("evening");
-//   }
-//   if (hr >= 20 || hr < 5) {
-//     main.className = "";
-//     main.classList.add("night");
-//   }
-// }
-
-//위의 코드를 효율적으로 반복문으로 변경
-//미션 changeTheme함수 안쪽에 특정정보값을 배열로 분리한 뒤 조건식 부분을 반복문처리
-
+//시간에 따른 테마 변경 함수
 function changeTheme() {
   const hr = new Date().getHours();
-  const themes = ['night', 'morning', 'afternoon', 'evening', 'night']; // 각 시간대에 맞는 테마
 
-  const themeIdx = hr < 5 ? 0 : Math.floor((hr - 5) / 6) + 1;
+  const themeData = [
+    { className: "morning", period: [5, 11] },
+    { className: "afternoon", period: [11, 16] },
+    { className: "evening", period: [16, 20] },
+    { className: "night", period: [20, 5] }
+  ];
+
   main.className = "";
-  main.classList.add(themes[themeIdx]);
+
+  themeData.forEach(data => {
+    if (data.className != "night") {
+      if (hr >= data.period[0] && hr < data.period[1]) main.classList.add(data.className);
+    } else {
+      if (hr >= data.period[0] || hr < data.period[1]) main.classList.add(data.className);
+    }
+  });
+
+  // if (hr >= 5 && hr < 11) main.classList.add("morning");
+  // if (hr >= 11 && hr < 16) main.classList.add("afternoon");
+  // if (hr >= 16 && hr < 20) main.classList.add("evening");
+  // if (hr >= 20 || hr < 5) main.classList.add("night");
 }
-
-
-//오후 1시, 13시가 넘어가면 다시 01로 표기법 변경
-let hr = new Date().getHours();
-hr = hr % 12 || 12;  // 12시간 형식으로 변환
-
-
-//숫자 들어가는 부분 위치 고정되게, 숫자에 따라 움직이지 않게
-
-//브라우저 렌더링 될 때 레이아웃과 페인팅이 될때 제일 시간이 걸림
-// js를 변경하면 로직이 그렇게 무거운 편은 아님 
