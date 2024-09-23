@@ -1,4 +1,3 @@
-
 class Anime {
   #defOpt = { duration: 500, callback: null, easeType: "linear" };
 
