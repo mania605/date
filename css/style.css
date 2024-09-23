@@ -26,12 +26,12 @@ main {
 main article {
   width: 35%;
   position: absolute;
-  top: 40%;
+  top: 55%;
   left: 5%;
+  color: #fff;
 }
 main article p {
   font: 4vw/1 "orbitron";
-  color: #fff;
   margin-bottom: 20px;
 }
 main article p strong {
@@ -40,7 +40,6 @@ main article p strong {
 }
 main article em {
   font: 1rem/1.2 "arial";
-  color: #fff;
   letter-spacing: 2px;
 }
 main figure {
@@ -51,6 +50,7 @@ main figure {
   top: 50%;
   margin-top: -200px;
   background: url(../img/phone_morning.png) no-repeat right top/contain;
+  color: #fff;
 }
 main figure .screen {
   width: 534px;
@@ -63,14 +63,12 @@ main figure .screen {
   align-items: center;
   gap: 20px;
   font: 60px/1 "orbitron";
-  color: #fff;
 }
 main figure .screen em {
   position: absolute;
   top: 90px;
   left: 80px;
   font: 1.3rem/1 "orbitron";
-  color: #fff;
   opacity: 0;
 }
 main figure .screen em.on {
@@ -99,6 +97,9 @@ main.night {
 }
 main.night figure {
   background-image: url(../img/phone_night.png);
+}
+main.afternoon figure {
+  color: #555;
 }
 
 @media screen and (max-width: 1600px) {
@@ -132,6 +133,7 @@ main.night figure {
 @media screen and (max-width: 600px) {
   main article {
     top: 20%;
+    color: #555;
   }
   main article p {
     font-size: 40px;
@@ -143,6 +145,7 @@ main.night figure {
     transform: scale(1);
     right: 0%;
     margin-top: 0px;
+    color: #fff !important;
   }
   main figure .screen {
     width: 100%;
