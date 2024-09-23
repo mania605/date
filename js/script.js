@@ -1,22 +1,27 @@
-
 //미션1 new Date()활용해서 시간,분,초 를 각각span 안에 출력
 //미션2 현재시간이 13시를 넘기면 em안쪽의 am을 pm으로 변경 
+/* 
+set Interval : 특정 함수를 일정시간마다 반복 호출
+setInterval(함수,인터벌시간) :인터벌간격마다 함수 반복 호출
+*/
+
 const title = document.querySelector("h1");
 const [em, spanHr, spanMin, spanSec] = title.children;
 //모든 자식요소
 //중간확인 console.log(childEl);
 
-const now = new Date();
-const hr = now.getHours();
-const min = now.getMinutes();
-const sec = now.getSeconds();
-let apm = hr < 13 ? "AM" : "PM"
+setInterval(() => {
+  const now = new Date();
+  const hr = now.getHours();
+  const min = now.getMinutes();
+  const sec = now.getSeconds();
+  let apm = hr < 13 ? "AM" : "PM"
 
-em.innerText = apm;
-spanHr.innerText = hr;
-spanMin.innerText = min;
-spanSec.innerText = sec;
-
+  em.innerText = apm;
+  spanHr.innerText = hr;
+  spanMin.innerText = min;
+  spanSec.innerText = sec;
+}, 1000);
 
 /* GPT답
 const now = new Date();
